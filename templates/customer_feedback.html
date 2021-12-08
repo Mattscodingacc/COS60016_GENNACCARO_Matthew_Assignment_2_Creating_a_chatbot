@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Matthew Gennaccaro">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS styles.css-->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <!-- insert any fonts here -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+       <title>Customer Feedback</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="title">
+                <h1> Django Weather Services </h1>
+            </div>
+		</header>
+        <!-- Navigation bar-->
+        <div>
+            <nav class="navbar">
+                <ul class="nav_list">
+                    <li><a href="/home" title="Home">Home</a></li>
+                    <li><a href="/about_us" title="About Us">About Us</a></li>
+                    <li><a href="/customer_feedback" title="Customer Feedback">Customer Feedback</a></li>
+                    <li><a href="/the_future" title="The Future">The Future</a></li>
+                    <li><a href="/frequently_asked_questions" title="FAQ">FAQ</a></li>
+                    <li><a href="/weather_app" title="Weather App">Weather app</a></li>
+                    <li><a href="chatbot/chatbot" title="Chatbot">Chatbot</a></li>
+                </ul>
+            </nav>
+        </div>
+        <h2 class="fb_title">Please use the form below to submit your feedback!</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="cf_button">Submit</button>
+        </form>
+        <br>
+        <div class="comments_container">
+            <div>
+                <h3> Damon 15/11/2021 </h3>
+                <h4> Lorem Ipsum dolor sit amet </h4>
+                <p> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+            <br>
+            <div>
+                <h3> Carl 14/11/2021 </h3>
+                <h4> Ut enim ad minim veniam</h4>
+                <p> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+            </div>
+            <br>
+            <div>
+                <h3> Andrea 11/11/2021 </h3>
+                <h4> Duis aute irure dolor </h4>
+                <p> in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+            </div>
+        </div>
+        <footer>
+            <p>Contact us</p>
+			<p>Ph: XXXX-XXXX</p>
+			<p>Email: example@domain.com</p>
+			<p>Created by Matthew Gennaccaro</p>
+        </footer>
+    </body>
+</html>

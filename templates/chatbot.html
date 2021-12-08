@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Matthew Gennaccaro">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS styles.css-->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <!-- insert any fonts here -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+        <title>Chatbot</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="title">
+                <h1> Django Weather Services </h1>
+            </div>
+		</header>
+        <!-- Navigation bar-->
+        <div>
+            <nav class="navbar">
+                <ul class="nav_list">
+                    <li><a href="/home" title="Home">Home</a></li>
+                    <li><a href="/about_us" title="About Us">About Us</a></li>
+                    <li><a href="/customer_feedback" title="Customer Feedback">Customer Feedback</a></li>
+                    <li><a href="/the_future" title="The Future">The Future</a></li>
+                    <li><a href="/frequently_asked_questions" title="FAQ">FAQ</a></li>
+                    <li><a href="/weather_app" title="Weather App">Weather app</a></li>
+                    <li><a href="" title="Chatbot">Chatbot</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Welcome text and chatbot instructions -->
+        <div class="welcome_text">
+            <p>
+                Require assistance?
+				<br><br>
+				Meet Jarvis, our new chatbot. He can answer your weather questions using the box below! You can ask him
+                questions about what the weather and temperature are like in your city, or even the time of sunrise
+                and sunset. Feel free to ask him about other things too!
+                <br><br>
+                NOTE: When enquiring about your city's weather information, you can help Jarvis by writing the city
+                name last.
+            </p>
+        </div>
+
+        <!-- Chat box for dialogue -->
+        <div class="weather_data">
+            <form method="POST" name="user_input_form">
+                {% csrf_token %}
+                <input id="user_input" name="question" placeholder="Ask Jarvis a question..." autofocus="autofocus">
+                <input id="chat_submit_button" type="submit" value="Ask">
+            </form>
+            <div class="chat_window">
+                <p class="chatbot_message"> You: </p>{{question}}
+                <p class="chatbot_message"> Jarvis: </p>{{answer}}
+            </div>
+        </div>
+		<footer>
+            <p>Contact us</p>
+			<p>Ph: XXXX-XXXX</p>
+			<p>Email: example@domain.com</p>
+			<p>Created by Matthew Gennaccaro</p>
+        </footer>
+    </body>
+</html>

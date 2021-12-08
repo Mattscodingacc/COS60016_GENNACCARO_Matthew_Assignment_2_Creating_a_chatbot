@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Matthew Gennaccaro">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS styles.css-->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        <!-- insert any fonts here -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
+        <title>Weather app</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="title">
+                <h1> Django Weather Services </h1>
+            </div>
+		</header>
+        <!-- Navigation bar-->
+        <div>
+            <nav class="navbar">
+                <ul class="nav_list">
+                    <li><a href="/home" title="Home">Home</a></li>
+                    <li><a href="/about_us" title="About Us">About Us</a></li>
+                    <li><a href="/customer_feedback" title="Customer Feedback">Customer Feedback</a></li>
+                    <li><a href="/the_future" title="The Future">The Future</a></li>
+                    <li><a href="/frequently_asked_questions" title="FAQ">FAQ</a></li>
+                    <li><a href="/weather_app" title="Weather App">Weather app</a></li>
+                    <li><a href="chatbot/chatbot" title="Chatbot">Chatbot</a></li>
+                </ul>
+            </nav>
+        </div>
+        <br>
+        <div class="instructions">
+            <h2> Welcome to the Django Weather App! </h2>
+            <h3> Search using latitude and longitude to get up-to-date weather data of your desired location.  </h3>
+            <p> NOTE: If you input a South ("S") latitude, or West ("W") longitude, please add a "-" in front of the number. </p>
+        </div>
+        <br>
+        <form method="POST" class="location_search">
+            {% csrf_token %}
+            <div>
+                <input id="latitude_search" name="latitude" placeholder="Search for latitude...">
+                <input id="longitude_search" name="longitude" placeholder="Search for longitude...">
+            </div>
+            <div>
+                <button class="weather_app_btn" id="submit_button" type="submit">Search</button>
+            </div>
+        </form>
+        <br>
+        <!-- Error message in case of invalid values -->
+        {% if error_message %}
+            <div class="error_message">
+                {{ error_message }}
+            </div>
+        {% endif %}
+        <br>
+        <!-- Weather data box, data displayed if input values are valid. -->
+        {% if current_temp %}
+        <div class="weather_wrapper">
+            <div class="weather_data">
+                <h2>{{location}}</h2>
+                <h4>{{description}}</h4>
+                <table>
+                    <tr>
+                        <td class="">Current Temperature</td>
+                        <td class=""></td>
+                        <td class="">{{current_temp}}</td>
+                    </tr>
+                    <tr>
+                        <td class="">Minimum Temperature</td>
+                        <td class=""></td>
+                        <td class="">{{min_temp}}</td>
+                    </tr>
+                    <tr>
+                        <td class="">Maximum Temperature</td>
+                        <td class=""></td>
+                        <td class="">{{max_temp}}</td>
+                    </tr>
+                    <tr>
+                        <td class="">Humidity</td>
+                        <td class=""></td>
+                        <td class="">{{humidity}}</td>
+                    </tr>
+                    <tr>
+                        <td class="">{{sunrise}}</td>
+                        <td class=""></td>
+                        <td class="">{{sunset}}</td>
+                    </tr>
+                </table>
+                <h3> Don't have a good day, have a great day! </h3>
+            </div>
+            {% endif %}
+        </div>
+        <div class="trademark">
+            <p>
+                Django weather services 2021
+            </p>
+        </div>
+        <footer>
+            <p>Contact us</p>
+			<p>Ph: XXXX-XXXX</p>
+			<p>Email: example@domain.com</p>
+			<p>Created by Matthew Gennaccaro</p>
+        </footer>
+    </body>
+</html>
