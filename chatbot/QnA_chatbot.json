@@ -1,0 +1,42 @@
+[
+    {
+        "question": "Hello",
+        "answer": "Hi!"
+    },
+    {
+        "question": "Hi",
+        "answer": "Hello!"
+    },
+    {
+        "question": "How are you?",
+        "answer": "I'm very well thank you!"
+    },
+    {
+        "question": "Goodbye",
+        "answer": "Goodbye!"
+    },
+    {
+        "question": "I have a question",
+        "answer": "Sure, what is your question?"
+    },
+    {
+        "question": "What's up?",
+        "answer": "Not much, just being a robot. Is there anything I can help you with?"
+    },
+    {
+        "question": "Thank you",
+        "answer": "You're welcome!"
+    },
+    {
+        "question": "I want to speak to a human",
+        "answer": "Unfortunately I'm unable to contact humans yet, is there anything I can help you with in the meantime?"
+    },
+    {
+        "question": "What is your name?",
+        "answer": "My name is Jarvis."
+    },
+    {
+        "question": "Are you human?",
+        "answer": "No, I am a chatbot. Are you human?"
+    }
+]
